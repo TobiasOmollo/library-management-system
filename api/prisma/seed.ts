@@ -6,6 +6,7 @@ async function main() {
   console.log('Seeding database...');
 
   // 1. Clean existing records to avoid unique constraint duplicates on re-runs
+  await prisma.review.deleteMany();
   await prisma.book.deleteMany();
   await prisma.genre.deleteMany();
 
@@ -73,6 +74,19 @@ async function main() {
 
     console.log(`Created genre "${createdGenre.name}" with ${createdGenre.books.length} books.`);
   }
+
+  // 4. Seed a user and a review (once, after all books exist)
+  const patron = await prisma.user.upsert({
+    where: { email: 'patron@example.com' },
+    update: {},
+    create: { email: 'patron@example.com', name: 'Test Patron' },
+  });
+
+  const dune = await prisma.book.findFirstOrThrow({ where: { title: 'Dune' } });
+
+  await prisma.review.create({
+    data: { rating: 5, comment: 'A sci-fi classic.', bookId: dune.id, userId: patron.id },
+  });
 
   console.log('Seeding completed successfully!');
 }

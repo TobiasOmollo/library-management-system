@@ -1,0 +1,14 @@
+{
+  "devDependencies": {
+    "prisma": "^6.19.3",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.19.3"
+  },
+  "scripts": {},
+  "prisma": {
+    "seed": "npx tsx prisma/seed.ts"
+  }
+}

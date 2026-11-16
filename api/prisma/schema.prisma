@@ -1,12 +1,8 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
-  provider = "prisma-client"
-  output   = "../generated/prisma"
+  provider = "prisma-client-js"
 }
 
 datasource db {
@@ -15,18 +11,19 @@ datasource db {
 }
 
 enum Role {
-  PATRON
+  MEMBER
   LIBRARIAN
 }
 
 model User {
-  id        String   @id @default(uuid())
-  email     String   @unique
-  name      String?
-  role      Role     @default(PATRON)
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  reviews   Review[]
+  id           String   @id @default(uuid())
+  email        String   @unique
+  passwordHash String
+  name         String?
+  role         Role     @default(MEMBER)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  reviews      Review[]
 }
 
 model Genre {
@@ -38,15 +35,19 @@ model Genre {
 }
 
 model Book {
-  id        String   @id @default(uuid())
-  title     String
-  author    String
-  isbn      String?  @unique
-  genreId   String
-  genre     Genre    @relation(fields: [genreId], references: [id], onDelete: Restrict)
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  reviews   Review[]
+  id            String   @id @default(uuid())
+  title         String
+  author        String
+  isbn          String?  @unique
+  description   String?
+  publishedYear Int?
+  copies        Int?     @default(1)
+  available     Int?     @default(1)
+  genreId       String
+  genre         Genre    @relation(fields: [genreId], references: [id], onDelete: Restrict)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  reviews       Review[]
 }
 
 model Review {

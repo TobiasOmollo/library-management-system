@@ -4,6 +4,7 @@ import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  app.enableCors();
 
   app.useGlobalPipes(
     new ValidationPipe({
@@ -12,9 +13,9 @@ async function bootstrap() {
       transform: true,
     }),
   );
+  await app.listen(3000);
 
   const port = process.env.PORT || 3000;
-  await app.listen(port);
   console.log(`Library API is running on http://localhost:${port}`);
 }
 

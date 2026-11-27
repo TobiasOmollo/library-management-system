@@ -1,0 +1,121 @@
+/* ManagePage Styles */
+.manage-page-container {
+  width: min(100% - 32px, 1100px);
+  margin: 0 auto 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.manage-header {
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 24px;
+}
+
+.manage-header h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(32px, 4vw, 42px);
+  font-weight: 600;
+  margin: 8px 0;
+  color: var(--text-primary);
+}
+
+.manage-header p {
+  color: var(--text-secondary);
+  font-size: 15px;
+  margin: 0;
+}
+
+.manage-forms-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+.manage-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: 32px;
+  box-shadow: var(--shadow-sm);
+}
+
+.manage-card h2 {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  margin: 0 0 20px;
+  color: var(--text-primary);
+}
+
+.manage-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.form-row-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+}
+
+.form-textarea {
+  height: auto;
+  padding: 10px 14px;
+  resize: vertical;
+}
+
+.existing-genres-box {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.existing-genres-box h3 {
+  font-size: 14px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin: 0 0 12px;
+}
+
+.existing-genres-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.existing-genres-list li {
+  background: var(--mmu-blue-50);
+  border: 1px solid var(--mmu-blue-100);
+  color: var(--mmu-blue-800);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+}
+
+.manage-alert {
+  padding: 14px 18px;
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+@media (max-width: 860px) {
+  .manage-forms-grid {
+    grid-template-columns: 1fr;
+  }
+}

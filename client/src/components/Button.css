@@ -1,0 +1,228 @@
+/* Spectacular Button Styling */
+.spectacular-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  overflow: hidden;
+  user-select: none;
+  white-space: nowrap;
+  vertical-align: middle;
+  transform: translateY(0);
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast),
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.spectacular-btn:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 3px;
+}
+
+/* Button Sizes */
+.btn-sm {
+  height: 34px;
+  padding: 0 14px;
+  font-size: 13px;
+  letter-spacing: -0.01em;
+}
+
+.btn-md {
+  height: 44px;
+  padding: 0 20px;
+  font-size: 14px;
+  letter-spacing: -0.01em;
+}
+
+.btn-lg {
+  height: 52px;
+  padding: 0 28px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* Button Content */
+.btn-content {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-icon-left,
+.btn-icon-right {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1em;
+}
+
+/* Shine Sweep Effect */
+.btn-shine {
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 70%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  pointer-events: none;
+  z-index: 1;
+  transition: left 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.spectacular-btn:hover .btn-shine {
+  left: 150%;
+}
+
+/* Ambient Glow */
+.btn-glow {
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-normal);
+  z-index: 0;
+}
+
+/* Dynamic Click Ripple */
+.btn-ripple {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.55);
+  transform: translate(-50%, -50%) scale(0);
+  animation: spectacularRipple 0.65s ease-out forwards;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes spectacularRipple {
+  to {
+    transform: translate(-50%, -50%) scale(25);
+    opacity: 0;
+  }
+}
+
+/* Variant: PRIMARY (MMU Blue Gradient + Glow) */
+.btn-primary {
+  background: linear-gradient(135deg, var(--mmu-blue-700) 0%, var(--mmu-blue-600) 50%, var(--mmu-blue-500) 100%);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 14px 0 rgba(29, 78, 216, 0.3);
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, var(--mmu-blue-600) 0%, var(--mmu-blue-500) 50%, var(--mmu-blue-400) 100%);
+  box-shadow: 0 8px 24px -2px rgba(29, 78, 216, 0.45);
+}
+
+.btn-primary:active:not(:disabled) {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 2px 8px 0 rgba(29, 78, 216, 0.3);
+}
+
+/* Variant: SECONDARY */
+.btn-secondary {
+  background: #ffffff;
+  color: var(--mmu-blue-900);
+  border-color: var(--border-subtle);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+}
+
+.btn-secondary .btn-ripple {
+  background: rgba(29, 78, 216, 0.18);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  background: var(--mmu-blue-50);
+  border-color: var(--mmu-blue-300);
+  color: var(--mmu-blue-700);
+  box-shadow: 0 6px 18px -2px rgba(10, 37, 64, 0.08);
+}
+
+.btn-secondary:active:not(:disabled) {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Variant: GHOST */
+.btn-ghost {
+  background: transparent;
+  color: var(--text-secondary);
+  border-color: transparent;
+}
+
+.btn-ghost .btn-ripple {
+  background: rgba(29, 78, 216, 0.15);
+}
+
+.btn-ghost:hover:not(:disabled) {
+  background: rgba(29, 78, 216, 0.08);
+  color: var(--mmu-blue-700);
+  transform: translateY(-1px);
+}
+
+/* Variant: DANGER */
+.btn-danger {
+  background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 14px 0 rgba(220, 38, 38, 0.3);
+}
+
+.btn-danger:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -2px rgba(220, 38, 38, 0.45);
+}
+
+/* Disabled & Loading States */
+.spectacular-btn:disabled,
+.btn-disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.btn-loading {
+  cursor: wait;
+}
+
+.btn-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: btnSpin 0.75s linear infinite;
+}
+
+.btn-secondary .btn-spinner,
+.btn-ghost .btn-spinner {
+  border: 2px solid rgba(10, 37, 64, 0.2);
+  border-top-color: var(--mmu-blue-700);
+}
+
+@keyframes btnSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}

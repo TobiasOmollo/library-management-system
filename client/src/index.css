@@ -1,21 +1,16 @@
+@import './styles/variables.css';
+
 :root {
-  font-family: 'DM Sans', 'Segoe UI', sans-serif;
-  color: #302e27;
-  background: #f8f6f0;
+  font-family: var(--font-sans);
+  color: var(--text-primary);
+  background: var(--bg-canvas);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-optical-sizing: auto;
   font-weight: 400;
-
-  --ink: #302e27;
-  --muted: #898477;
-  --rust: #a46041;
-  --line: #e8e2d7;
-  --serif: 'Cormorant Garamond', 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
-
-  font-size: 14px;
+  font-size: 15px;
 }
 
 * {
@@ -31,21 +26,27 @@ body {
   min-width: 320px;
   min-height: 100vh;
   margin: 0;
+  background: var(--bg-canvas);
+  color: var(--text-primary);
 }
 
 button,
-input {
+input,
+select,
+textarea {
   font: inherit;
 }
 
 button:focus-visible,
 a:focus-visible,
-input:focus-visible {
-  outline: 2px solid #a46041;
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--border-focus);
   outline-offset: 3px;
 }
 
 ::selection {
-  background: #dfc5ae;
-  color: #302e27;
+  background: var(--mmu-blue-100);
+  color: var(--mmu-blue-900);
 }

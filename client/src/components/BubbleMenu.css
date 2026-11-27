@@ -1,0 +1,313 @@
+/* BubbleMenu Component Styles */
+.bubble-header {
+  position: sticky;
+  top: 12px;
+  z-index: 100;
+  width: min(100% - 32px, 1200px);
+  margin: 0 auto 24px;
+}
+
+.bubble-header-inner {
+  height: 64px;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  border-radius: var(--radius-full);
+  padding: 0 16px 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 20px -2px rgba(10, 37, 64, 0.08);
+  transition: all var(--transition-normal);
+}
+
+/* Brand Wordmark */
+.bubble-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--mmu-blue-950);
+}
+
+.bubble-brand-badge {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--mmu-blue-700), var(--mmu-blue-500));
+  color: #ffffff;
+  font-family: var(--font-serif);
+  font-size: 19px;
+  font-style: italic;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 2px 8px rgba(29, 78, 216, 0.3);
+}
+
+.bubble-brand-text {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.bubble-brand-text em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--mmu-blue-600);
+}
+
+/* Desktop Navigation */
+.bubble-desktop-nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.bubble-nav-link {
+  position: relative;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: 6px 4px;
+  transition: color var(--transition-fast);
+}
+
+.bubble-nav-link:hover,
+.bubble-nav-link.active {
+  color: var(--mmu-blue-700);
+}
+
+.bubble-nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--mmu-blue-600);
+  border-radius: var(--radius-full);
+}
+
+.librarian-badge-link {
+  background: var(--mmu-blue-50);
+  color: var(--mmu-blue-700);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+}
+
+/* Action Cluster */
+.bubble-action-cluster {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.bubble-auth-shortcuts {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.bubble-user-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--mmu-blue-50);
+  border: 1px solid var(--mmu-blue-100);
+  padding: 4px 12px 4px 4px;
+  border-radius: var(--radius-full);
+}
+
+.bubble-user-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--mmu-blue-600);
+  color: #ffffff;
+  display: grid;
+  place-items: center;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.bubble-user-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--mmu-blue-900);
+  max-width: 110px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.bubble-librarian-tag {
+  font-size: 10px;
+  font-weight: 700;
+  background: var(--mmu-blue-700);
+  color: #ffffff;
+  padding: 2px 6px;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+}
+
+/* Bubble Toggle Button (3 Dots that animate) */
+.bubble-toggle-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--border-subtle);
+  background: #ffffff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  transition: all var(--transition-fast);
+}
+
+.bubble-toggle-btn:hover {
+  background: var(--mmu-blue-50);
+  border-color: var(--mmu-blue-300);
+  transform: scale(1.05);
+}
+
+.bubble-toggle-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--mmu-blue-700);
+  transition: all var(--transition-fast);
+}
+
+.bubble-toggle-btn.is-active .bubble-toggle-dot:nth-child(1) {
+  transform: translateY(2px) scale(1.2);
+}
+.bubble-toggle-btn.is-active .bubble-toggle-dot:nth-child(2) {
+  background: var(--mmu-blue-500);
+}
+.bubble-toggle-btn.is-active .bubble-toggle-dot:nth-child(3) {
+  transform: translateY(-2px) scale(1.2);
+}
+
+/* Floating Dropdown Bubble */
+.bubble-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: 320px;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 16px 36px -4px rgba(10, 37, 64, 0.16);
+  opacity: 0;
+  transform: translateY(-8px) scale(0.97);
+  pointer-events: none;
+  transition:
+    opacity var(--transition-normal),
+    transform var(--transition-normal);
+  overflow: hidden;
+}
+
+.bubble-dropdown.is-open {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.bubble-dropdown-content {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.bubble-section-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  padding: 0 8px;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.bubble-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  transition: all var(--transition-fast);
+}
+
+.bubble-dropdown-item:hover,
+.bubble-dropdown-item.active {
+  background: var(--mmu-blue-50);
+  color: var(--mmu-blue-700);
+}
+
+.bubble-item-icon {
+  font-size: 16px;
+}
+
+.bubble-dropdown-divider {
+  height: 1px;
+  background: var(--border-subtle);
+  margin: 4px 0;
+}
+
+.bubble-account-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-surface-secondary);
+  padding: 10px 12px;
+  border-radius: var(--radius-md);
+}
+
+.bubble-account-email {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.bubble-account-role {
+  margin: 2px 0 0;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.bubble-guest-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .bubble-desktop-nav,
+  .bubble-auth-shortcuts,
+  .bubble-user-pill {
+    display: none;
+  }
+
+  .bubble-dropdown {
+    width: calc(100vw - 32px);
+    right: 0;
+  }
+}

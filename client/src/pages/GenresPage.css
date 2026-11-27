@@ -1,0 +1,65 @@
+/* GenresPage Styles */
+.genres-page-container {
+  width: min(100% - 32px, 1200px);
+  margin: 0 auto 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.genres-page-header {
+  text-align: center;
+  max-width: 600px;
+  margin: 20px auto 0;
+}
+
+.genres-page-header h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(32px, 4vw, 44px);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 8px 0;
+}
+
+.genres-page-header p {
+  color: var(--text-secondary);
+  font-size: 15px;
+  margin: 0;
+}
+
+.genre-card-desc {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0 0 16px;
+}
+
+.genre-card-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--mmu-blue-600);
+}
+
+.genres-loading-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.genres-skeleton-card {
+  height: 180px;
+  background: var(--bg-surface-secondary);
+  border-radius: var(--radius-lg);
+  animation: shimmerSweep 1.5s infinite;
+}
+
+.genres-error-state {
+  text-align: center;
+  padding: 40px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+}

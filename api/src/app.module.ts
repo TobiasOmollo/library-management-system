@@ -13,6 +13,13 @@ import { BooksModule } from './books/books.module';
     ConfigModule.forRoot({
       isGlobal: true,
       envFilePath: ['.env'],
+      validate: (config: Record<string, any>) => {
+        const secret = config.JWT_SECRET;
+        if (!secret || typeof secret !== 'string' || secret.trim() === '') {
+          throw new Error('Config validation error: "JWT_SECRET" is required and cannot be empty.');
+        }
+        return config;
+      },
     }),
     ThrottlerModule.forRoot([
       {

@@ -1,0 +1,117 @@
+/* BookCover Styles */
+.mmu-book-cover {
+  position: relative;
+  aspect-ratio: 2 / 3;
+  width: 100%;
+  border-radius: 6px 12px 12px 6px;
+  overflow: hidden;
+  box-shadow:
+    0 10px 25px -5px rgba(0, 0, 0, 0.25),
+    0 8px 10px -6px rgba(0, 0, 0, 0.2);
+  display: flex;
+  user-select: none;
+  transform-style: preserve-3d;
+}
+
+.cover-spine {
+  width: 14px;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.28);
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: inset -2px 0 5px rgba(0, 0, 0, 0.4);
+  flex-shrink: 0;
+}
+
+.cover-inner {
+  flex-grow: 1;
+  padding: 16px 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cover-top-motif {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.motif-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.motif-line {
+  height: 1px;
+  width: 28px;
+  opacity: 0.6;
+}
+
+.cover-typography {
+  margin: auto 0;
+}
+
+.cover-title-text {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.25;
+  margin: 0 0 6px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+.cover-author-text {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 400;
+  opacity: 0.85;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.cover-bottom-rule {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cover-seal {
+  font-family: var(--font-serif);
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  opacity: 0.7;
+  border: 1px solid currentColor;
+  padding: 1px 4px;
+  border-radius: 2px;
+}
+
+/* Large Variant for Detail Page */
+.cover-large {
+  max-width: 320px;
+  border-radius: 8px 16px 16px 8px;
+}
+
+.cover-large .cover-spine {
+  width: 22px;
+}
+
+.cover-large .cover-inner {
+  padding: 28px 24px;
+}
+
+.cover-large .cover-title-text {
+  font-size: 24px;
+  -webkit-line-clamp: 4;
+}
+
+.cover-large .cover-author-text {
+  font-size: 14px;
+}

@@ -1,0 +1,51 @@
+/* NotFoundPage Styles */
+.notfound-page-container {
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 16px;
+}
+
+.notfound-card {
+  text-align: center;
+  max-width: 520px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: 48px 32px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.notfound-badge {
+  font-family: var(--font-serif);
+  font-size: 64px;
+  font-weight: 700;
+  color: var(--mmu-blue-300);
+  line-height: 1;
+}
+
+.notfound-card h1 {
+  font-family: var(--font-serif);
+  font-size: 32px;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.notfound-card p {
+  color: var(--text-secondary);
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0 0 12px;
+}
+
+.notfound-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}

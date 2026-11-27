@@ -1,0 +1,22 @@
+/* FallingLight Component Styles */
+.falling-light-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.falling-light-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.falling-light-static {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 80% 20%, rgba(219, 234, 254, 0.4) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}

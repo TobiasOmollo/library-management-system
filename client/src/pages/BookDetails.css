@@ -1,0 +1,225 @@
+/* BookDetails Styles */
+.book-detail-container {
+  width: min(100% - 32px, 1100px);
+  margin: 0 auto 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.detail-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.breadcrumb-link {
+  color: var(--mmu-blue-600);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.breadcrumb-link:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb-current {
+  color: var(--text-primary);
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 400px;
+}
+
+/* Showcase Grid */
+.detail-showcase-grid {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 48px;
+  align-items: start;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: 40px;
+  box-shadow: var(--shadow-sm);
+}
+
+.detail-cover-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.detail-curation-note {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+}
+
+.detail-narrative-column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.detail-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.detail-genre-pill {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: var(--mmu-blue-100);
+  color: var(--mmu-blue-800);
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+}
+
+.detail-year-text {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.detail-book-title {
+  font-family: var(--font-serif);
+  font-size: clamp(32px, 4vw, 44px);
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--text-primary);
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.detail-book-author {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.detail-divider {
+  height: 1px;
+  background: var(--border-subtle);
+  margin: 8px 0;
+}
+
+.detail-synopsis h3 {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  margin: 0 0 8px;
+}
+
+.detail-synopsis p {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.detail-availability-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+  border-radius: var(--radius-md);
+  margin-top: 12px;
+}
+
+.detail-availability-card.status-true {
+  background: var(--status-available-bg);
+  border: 1px solid #a7f3d0;
+  color: #065f46;
+}
+
+.detail-availability-card.status-false {
+  background: var(--status-unavailable-bg);
+  border: 1px solid #fecaca;
+  color: #991b1b;
+}
+
+.detail-availability-card.status-unknown {
+  background: var(--status-unknown-bg);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+}
+
+/* Not Found & Loading States */
+.book-detail-loading,
+.book-not-found-card {
+  padding: 80px 24px;
+  text-align: center;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: min(100% - 32px, 600px);
+  margin: 60px auto;
+}
+
+.not-found-icon {
+  font-size: 48px;
+}
+
+.book-not-found-card h2 {
+  font-family: var(--font-serif);
+  font-size: 32px;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.book-not-found-card p {
+  color: var(--text-secondary);
+  max-width: 440px;
+  margin: 0 0 12px;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--border-subtle);
+  border-top-color: var(--mmu-blue-600);
+  border-radius: 50%;
+  animation: spinnerRotate 0.8s linear infinite;
+}
+
+@keyframes spinnerRotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive */
+@media (max-width: 860px) {
+  .detail-showcase-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .detail-cover-column {
+    margin: 0 auto;
+  }
+
+  .detail-meta-row,
+  .detail-availability-card {
+    justify-content: center;
+  }
+}
